@@ -5,13 +5,15 @@ AOM=['AOM23JUNE','AOM20112022_30','AOM19022023_70']
 
 const userExamMap = {
     'TEST1_USER': ['AOM23JUNE'],
-    'MUGAN01': ['auto', 'AOM23JUNE'],
     'ADMIN': ['auto', 'AOM23JUNE'],
     'KOMMARA':ALL,
     'TEST': ['auto'],
+    'MUGAN01': ['auto', 'AOM23JUNE'],
+    'MAYUG01': ['auto', 'AOM23JUNE']
 };
 
 MUGAN01="ganesh"
+MAYUG01="yugi"
 TEST="test"
 KOMMARA="tmrOP@123"
 ADMIN="password"
