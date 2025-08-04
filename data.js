@@ -10,10 +10,10 @@ const autoQuestions = [
         correctAnswer: 3
     },
     {
-        question: "Auto stop Signal is identified by",
+        question: "Auto stop signal is identified by",
         options: [
             "Black letter A on white circular disc",
-            "white letter A on black circular disc",
+            "White letter A on black circular disc",
             "Illuminated A marker.",
             "None of these"
         ],
@@ -22,7 +22,7 @@ const autoQuestions = [
     {
         question: "Speed of the train when semi auto signal at ON with A marker glowing",
         options: [
-            "walking speed",
+            "Walking speed",
             "15/10kmph",
             "25/10kmph",
             "25/8kmph"
@@ -30,32 +30,32 @@ const autoQuestions = [
         correctAnswer: 1
     },
     {
-        question: "Auto signal bobbing or flickering LP shall follow most restrictive aspect with a speed not exceeding ( not steady for 60 sec)",
+        question: "Auto signal bobbing or flickering LP shall follow most restrictive aspect with a speed not exceeding (not steady for 60 sec)",
         options: [
             "Walking speed",
             "15/10kmph",
             "25/10kmph",
-            "not allowed"
+            "Not allowed"
         ],
         correctAnswer: 1
     },
     {
         question: "When a train stops in rear of an auto signal at ON, duty of TMR is",
         options: [
-            "to show stop hand signal towards the rear",
-            "to ensure LV board is intact",
-            "to ensure Tail Lamp is intact and flashing red light properly",
-            "all of these"
+            "To show stop hand signal towards the rear",
+            "To ensure LV board is intact",
+            "To ensure tail lamp is intact and flashing red light properly",
+            "All of these"
         ],
         correctAnswer: 3
     },
     {
         question: "Gate stop signal in auto section is identified by",
         options: [
-            "black letter G on white circular disc",
-            "white letter G on black circular disc",
+            "Black letter G on white circular disc",
+            "White letter G on black circular disc",
             "Black letter G on yellow circular disc & illuminated A on black background",
-            "none of these"
+            "None of these"
         ],
         correctAnswer: 2
     },
@@ -82,19 +82,19 @@ const autoQuestions = [
     {
         question: "If LP exceed above 15/10 kmph after passing auto signal at on then TMR shall apply brake sharply and as suddenly release it.",
         options: [
-            "hand brake",
-            "continuous brake",
-            "hand brake and continuous brake",
-            "none of these."
+            "Hand brake",
+            "Continuous brake",
+            "Hand brake and continuous brake",
+            "None of these."
         ],
         correctAnswer: 2
     },
     {
-        question: "when LP comes across an auto signal which is flickering/ bobbing he shall treat the signal to be showing its",
+        question: "When LP comes across an auto signal which is flickering/ bobbing he shall treat the signal to be showing its",
         options: [
             "Proceed aspect",
-            "caution aspect",
-            "normal aspect",
+            "Caution aspect",
+            "Normal aspect",
             "Most restrictive aspect of signal post"
         ],
         correctAnswer: 3
@@ -106,7 +106,7 @@ const AOM23JUNE = [
         question: "Which of the following is a primary unit as per railway statistics? ",
         options: [
             "Tonn-Kms",
-            "kilometre ",
+            "Kilometre ",
             "Wagon Km per wagon day",
             "None of these "
         ],
@@ -115,10 +115,10 @@ const AOM23JUNE = [
     {
         question: "Full form of PDD is ?",
         options: [
-            "post departure delay ",
-            "post departure detention ",
-            "pre departure detention ",
-            "none of these "
+            "Post departure delay ",
+            "Post departure detention ",
+            "Pre departure detention ",
+            "None of these "
         ],
         correctAnswer: 2
     },
@@ -223,7 +223,7 @@ const AOM23JUNE = [
         correctAnswer: 3
     },
     {
-        question: "The section controller can call at the same time ____ ?",
+        question: "The section controller can call at the same time …...?",
         options: [
             "One station only ",
             "two stations only ",
@@ -253,7 +253,7 @@ const AOM23JUNE = [
         correctAnswer: 3
     },
     {
-        question: "In case of a goods train accident, arrangement of road transport and labour for unloading the wagons involved in the accident, is the duty of ___ ? ",
+        question: "In case of a goods train accident, arrangement of road transport and labour for unloading the wagons involved in the accident, is the duty of……..? ",
         options: [
             "Chief Controller / Dy. Chief  controller (stock)",
             "C&W Control ",
@@ -273,7 +273,7 @@ const AOM23JUNE = [
         correctAnswer: 1
     },
     {
-        question: "Power plan indicates the number of locos required for ?",
+        question: "Power plan indicates the number of locals required for ?",
         options: [
             "coaching service ",
             "Freight service ",
@@ -343,7 +343,7 @@ const AOM23JUNE = [
         correctAnswer: 3
     },
     {
-        question: "A substitute of shunting limit board is  ?",
+        question: "A substitute of Shunting Limit Board is-",
         options: [
             "calling-on signal ",
             "Starter",
@@ -351,27 +351,1527 @@ const AOM23JUNE = [
             "Last stop signal "
         ],
         correctAnswer: 3
+    },
+    {
+        question: "When a shunt signal is placed below a stop signal, it shall show — light in the ‘ON' position. ",
+        options: [
+            "White",
+            "Yellow",
+            "Red",
+            "No light"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "A Loco Pilot / Asstt Loco Pilot should record in the register — days in advance that he is lapsing road learning in 4 section.",
+        options: [
+            "7 days",
+            "13 days",
+            "15 days",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Continuous night duty for Running Staff should be limited to ____ nights with last night duty towards Headquarter.",
+        options: [
+            "3 nights",
+            "4 nights",
+            "5 nights",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The out station rest, in case of 8 hours or more duty from Sign ON to Sign OFF In the previous trip, should be __ hours.",
+        options: [
+            "4 hours",
+            "6 hours",
+            "8 hours",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The permitted ineffective percentages for Maintenance & Traffic spares of AC coaches (other than Rajdhani/Shatabdi and similar premium trains) are-",
+        options: [
+            "6% Maintenance & 5 % Traffic",
+            "5% Maintenance & 6 % Traffic",
+            "9% Maintenance & 7 % Traffic",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the minimum Axle Load route prevailing in Indian Railways?",
+        options: [
+            "20 ton",
+            "22 ton",
+            "22.4 ton",
+            "22.9 ton"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "In which of the following Zone, 25 Ton Axle Load Route is not available?",
+        options: [
+            "SER",
+            "SCR",
+            "ECoR",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "In case of emergency, CC+6 loaded wagens can be permitted on excepted CC+6 routes. Permission can be given by?",
+        options: [
+            "PCE",
+            "PCOM",
+            "CRS",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which of the following statement are not correct about mini rake?",
+        options: [
+            "Mini rake can be loaded with iron ore",
+            "Minirake is charged at Train Load Class",
+            "Mini rakes are permitted only in covered wagons",
+            "Free time for loading / unloading of mini rake will be 5 hrs."
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Explosives are divided into how many classes?",
+        options: [
+            "3",
+            "5",
+            "7",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Free fime for un-loading of BTPN type of wagon under Engine on load scheme is given as?",
+        options: [
+            "5 hours",
+            "6 hours",
+            "9 hours",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Ifa passenger carrying train does not amive within ___minutes after allowing for its normal running time from the station in rear, ihe Station Master at the station in advance shall immediately advise the station in rear and the control of this fact.",
+        options: [
+            "5",
+            "10",
+            "15",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The powers to grant traffic blocks upto ___ hours have been given to DRM.",
+        options: [
+            "3",
+            "4",
+            "Full powers",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "GM can sanction NI upto days ____ subject to certain conditions.",
+        options: [
+            "1",
+            "2",
+            "3",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "ETA @___ minutes per 100 kms shall be provided in sections having speed of 130 kmph and above.",
+        options: [
+            "4",
+            "6",
+            "8",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which of the following is nota luxury tourist train?",
+        options: [
+            "Royal Rajasthan on wheels",
+            "Maharaja Express",
+            "Panj Takht",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "In case of train running with LHB coaches with déflated air spring in secondary stage suspension, train is permitted to run at ___ kmph speed.",
+        options: [
+            "50",
+            "60",
+            "90",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Formula of Loco outage is?",
+        options: [
+            "Total engine hours from shed/24 ",
+            "Engine hours for traffic use/12",
+            "Total engine hours from shed/12",
+            "Engine hours for traffic use/24"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Loco / Power links are prepared by?",
+        options: [
+            "HQ's office",
+            "Division’s office",
+            "Loco lobbies",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The periedicity of Loco maintenance schedule IB for coaching locos (conventional Loco) is:",
+        options: [
+            "40 +/- 3 days",
+            "80 +/- 3 days",
+            "60 +/- 3 days",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Guard's rough joumal is required to be preserved for the period of?",
+        options: [
+            "3 years",
+            "2 years",
+            "5 years",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "At what time intervals, are the running staff reviewed?",
+        options: [
+            "1 year",
+            "2 years",
+            "6 months",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "How many dead engines can be attached’ to Mail/Express/Superfast trains?",
+        options: [
+            "1",
+            "cannot be attached",
+            "2",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the gross clearance of 'B’ class ODC?",
+        options: [
+            "Less than 6 Inches",
+            "6 inches or more but less than 9 inches",
+            "9 inches or more",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The modified Semi-Automatic stop signal is controlled by ____",
+        options: [
+            "SM in rear",
+            "SM in Advance",
+            "Either (1) or (2)",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Who permit Inter Railway movemeni of A class ODC?",
+        options: [
+            "CRS",
+            "PCOM of the same zone",
+            "Senior DOM",
+            "PCOM ofthe same zone and PCOM of the railway concemed"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "What is the maximum speed of A class ODC in BG?",
+        options: [
+            "40 km/h",
+            "Sectional speed",
+            "6O km/h",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The mid-section modified semi-automatic stop signal is interlocked with ___.",
+        options: [
+            "LSS of station in rear",
+            "FSS of station in advance",
+            "Both (1) &(2)",
+            "Either of (1) or (2)"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Preferential traffic order is issued under which section of Railway Act 1989?",
+        options: [
+            "Section 70",
+            "Section 71",
+            "Section 72",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Free time for un-loading of BCN type of wagon under Engine on load scheme Is given as?",
+        options: [
+            "6 hours",
+            "5 hours",
+            "4 hours",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Software aided train schedule and network governance (SATSanG) program is used for ____ ?",
+        options: [
+            "Time tabling of passenger trains",
+            "Time tabling of freight trains",
+            "Effective utilization of wagons",
+            "Effective utilization of Crew"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Full form of CADAT is? ",
+        options: [
+            "Computer Aided Drivers Awareness Test",
+            "Comprehensive Awareness of Drivers Ability Test",
+            "Computer Aided Drivers Aptitude Test",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Expand RFID?",
+        options: [
+            "Rail frequency Identity device",
+            "Radio forwarding identification device",
+            "Rail forwarding intact device",
+            "Radio Frequency Identification"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Train Collision Avoidance System (TCAS) Is an indigenously developed Automatic Train Protection System meant to provide protection to trains against ____",
+        options: [
+            "Sianal Passing at Danger",
+            "Over speeding",
+            "Collisions",
+            "All of the given options"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "The maximum speed of a irain in a double line section shall be restricted to _____ KMPH during dense fog, in automatic area. [DELETED]",
+        options: [
+            "15 KMPH",
+            "10 KMPH",
+            "30 KMPH",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Every Loco Pilot and ALP shall \"sign on\" _____ minutes in advance for examining and taking over the Multiple Unit Electric Engine in the shed.",
+        options: [
+            "45",
+            "30",
+            "60",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Record foil of the Caution Orders shall be preserved for period of how many months? [DELETED]",
+        options: [
+            "4",
+            "6",
+            "12",
+            "Perminently"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "If loco pilot and/or the guard failed to exchange signal with the station staff and the same has been reported to the Station Master of the block station in advance, the Station Master of block station in advance shall ...........? [Deleted]",
+        options: [
+            "Stop and examine the train",
+            "Stop the train and hand over a written warning to the defaulting staff",
+            "Ensure whether LP / guard is available or not and ensure they exchange the signal.",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Section will be considered saturated when line capacity exceeds",
+        options: [
+            "100% of charted capacity",
+            "90% of charted capacity",
+            "80% of charted capacity",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "W/L board is provided on the approach of all level crossings at a distance of meters",
+        options: [
+            "600",
+            "800",
+            "400",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "When running through between block stations and when running with the engine leading, the speed of a material train shall not exceed.",
+        options: [
+            "25 kmph",
+            "speed prescribed for goods train of similar stock",
+            "40 kmph",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The brake feel test is done by Loco Pilot at the speed of Kmph. [Deleted]",
+        options: [
+            "50",
+            "40",
+            "45 or 30 or 15",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The correct sequence in which following plans / drawings are prepared?",
+        options: [
+            "SIP, ESP, SWRD",
+            "ESP, SIP, SWRD",
+            "SIP, SWRD, ESP",
+            "SWRD, SIP, ESP"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The code for AC Chair Car second class of broad gauge coaching stock is? [Deleted]",
+        options: [
+            "WGSCZAC",
+            "WSCZAC",
+            "WGFCZ",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "When IBS is at 'ON' and if telephone is not provided or out of order at Intermediate block post, Loco pilot after waiting for minutes at the signal shall pass it at 'ON' proceeding cautiously.",
+        options: [
+            "07 minutes",
+            "05 minutes",
+            "10 minutes",
+            "15 minutes"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Sand Hump is an extended portion of rail in sand with increasing gradient of",
+        options: [
+            "1 in 60",
+            "1 in 80",
+            "1 in 100",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "TVU of special class LC gate shall be",
+        options: [
+            "Greater than 40,000",
+            "Greater than 45,000",
+            "Greater than 50,000",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The distance of derailing switch from the points is about ______ feet.",
+        options: [
+            "10",
+            "15",
+            "20",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The Certificate of Competency for operation of Block Instrument shall be valid for a period of ______ years.",
+        options: [
+            "Two",
+            "Three",
+            "Four",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Brake power percentage of an ordinary 'End to End' Air Brake rake other than premium rake at en-route station should be: -",
+        options: [
+            "75%",
+            "0.85",
+            "0.95",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Colour light Distant Signal may be combined with LSS, Gate Stop Signal etc. under: -",
+        options: [
+            "Approved Special Instruction",
+            "Special Instruction",
+            "Working Instruction",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "A Railway servant is debarred of taking any Alcoholic drink/Sedative/Narcotic/ Stimulant drug or preparation within how many hours before the commencement of his duty or when on duty-",
+        options: [
+            "6 hours",
+            "8 hours",
+            "12 hours",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "At a 'B' class double line MACL station, rear block section terminates at-",
+        options: [
+            "Outermost facing point",
+            "BSLB",
+            "Either at (1) or (2)",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "At a 'B' class Double Line MACL station, while performing shunting up to the First stop signal in rear ie. up to the Home signal, Block Back is -",
+        options: [
+            "Necessary",
+            "Not Necessary",
+            "Depends on Layout",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "If outside station limits, distance between two trains is ______ meter or more, such occurrence may not be treated as averted collision:-",
+        options: [
+            "600",
+            "500",
+            "400",
+            "250"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "\"Smell of burning grease is the symptom of?",
+        options: [
+            "Seizure of roller bearing",
+            "Brake binding",
+            "Flat tyre",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "A decrease in net tonne kilometer per engine hours may be due to?",
+        options: [
+            "Increase in the proportion of unbalanced traffic",
+            "Increase in the average starting wagon load",
+            "Decrease in shunting engine hours",
+            "Decrease in light engine running"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which among the following is not a means of isolation?",
+        options: [
+            "Sand hump",
+            "Derailing switch",
+            "Skid",
+            "Snag dead end"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which light of hand signal will be used by guard in night to inform the loco pilot at the time of train parting?",
+        options: [
+            "Red",
+            "Green",
+            "White",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Transportation of Coal for power houses is categorized under which category under priority schedule?",
+        options: [
+            "Priority-A",
+            "Priority-B",
+            "Priority-C",
+            "Priority-D"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which Tennis player has been on the top of the ATP rankings for maximum period?",
+        options: [
+            "Novak Djokovic",
+            "Rafael Nadal",
+            "Roger Federer",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which Indian Athlete is also known as 'Udan Pari'?",
+        options: [
+            "Hima Das",
+            "Dutee Chand",
+            "P.T. Usha",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which Indian Cricketer has also been President of BCCI?",
+        options: [
+            "Sachin Tendulkar",
+            "Sourav Ganguly",
+            "Dilip Vengsarkar",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Which country has won the most World Cups in Football?",
+        options: [
+            "Brazil",
+            "Argentina",
+            "France",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Who is the first Indian player to win an individual Gold in Olympics?",
+        options: [
+            "Neeraj Chopra",
+            "Abhinav Bindra",
+            "Sushil Kumar",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Vijender Singh is associated with which sports?",
+        options: [
+            "Boxing",
+            "Wrestling",
+            "Archery",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The number of centuries made by Sachin Tendulkar in International matches is?",
+        options: [
+            "99",
+            "100",
+            "101",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Irani Trophy' is associated with which of the following game?",
+        options: [
+            "Hockey",
+            "Football",
+            "Cricket",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The number of Gold Medals won by India in Hockey in Olympics till now are?",
+        options: [
+            "7",
+            "8",
+            "9",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The word 'Butterfly' is associated with which of the following game?",
+        options: [
+            "Kabaddi",
+            "Kho-Kho",
+            "Swimming",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which one of the following does not constitute the electoral college for electing the President of India?",
+        options: [
+            "Elected member of Lok Sabha",
+            "Elected member of Rajya Sabha",
+            "Elected members of the Legislative Assembly of each state",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "A person who is not a member of Parliament can be appointed as a Minister by the President for a maximum period of?",
+        options: [
+            "3 months",
+            "9 months",
+            "12 months",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Who among the following can attend meetings of the Union Cabinet?",
+        options: [
+            "Cabinet Ministers",
+            "Ministers of States",
+            "Deputy Ministers",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "When was the Constitution of India implemented?",
+        options: [
+            "26th January, 1948",
+            "26th January, 1949",
+            "26th January, 1950",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the strength of the Public Accounts Committee?",
+        options: [
+            "10 from Lok Sabha and 5 from Rajya Sabha",
+            "15 from Lok Sabha and 7 from Rajya Sabha",
+            "15 from Lok Sabha and 10 from Rajya Sabha",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Quit India Movement was launched in response to?",
+        options: [
+            "Simon Commission Report",
+            "Rowlatt Act",
+            "Cripps Proposals",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The state of Bengal was partitioned by Lord Curzon in the year?",
+        options: [
+            "1905",
+            "1906",
+            "1911",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Indian National Congress was established in the year?",
+        options: [
+            "1869",
+            "1885",
+            "1889",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Who was the Gandhi's nominee defeated by Subhash Chandra Bose for the presidentship of the Congress in 1939?",
+        options: [
+            "Pattabhi Sitharamayya",
+            "Abul Kalam Azad",
+            "S. Srinivasa Iyengar",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The battle of Plassey was fought in?",
+        options: [
+            "1757",
+            "1747",
+            "1764",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Tulsidas the author of Ramcharitmanas, was a contemporary of which of the following Rulers?",
+        options: [
+            "Akbar",
+            "Humayun",
+            "Shahjahan",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The Radcliffe line is a boundary between?",
+        options: [
+            "India and Pakistan",
+            "India and China",
+            "India and Myanmar",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The following monsoon contributes most of the rains in India?",
+        options: [
+            "South Western",
+            "North Eastern",
+            "North Western",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which atomic power station in India is built completely indigenously?",
+        options: [
+            "Kalpakkam",
+            "Narora",
+            "Rawatbhata",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which of the following important rivers of India does not originate from the Western Ghats?",
+        options: [
+            "Kaveri",
+            "Godavari",
+            "Krishna",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "When it is noon IST at Allahabad in India, the time at Greenwich, London, will be?",
+        options: [
+            "Midnight, GMT",
+            "17:30 hours",
+            "06:30 hours",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Carbon, diamond and graphite are together called?",
+        options: [
+            "Allotropes",
+            "Isomers",
+            "Isomorphs",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The first chairman of Atomic Energy Commission was?",
+        options: [
+            "H.J. Bhabha",
+            "Vikram Sarabhai",
+            "C.V. Raman",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Name the Governor General who abolished the Sati Pratha in 1829?",
+        options: [
+            "Lord Clive",
+            "Lord Dalhousie",
+            "Lord William Bentinck",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The Yellowstone National Park is situated in?",
+        options: [
+            "USA",
+            "Canada",
+            "Russia",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Who founded the Indian Statistical Institute on 17 Dec 1931?",
+        options: [
+            "P.C. Mahalanobis",
+            "R.A. Fischer",
+            "F. Yates",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Who was the first Indian to win All England Badminton Championship?",
+        options: [
+            "Prakash Padukone",
+            "Saina Nehwal",
+            "P. Gopichand",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Between whom did the third battle of Panipat take place?",
+        options: [
+            "Akbar & Hemu",
+            "Ahmad Shah Abdali & Maratha",
+            "Babur & Ibrahim Lodi",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "If the PH value of any type of soil is 10, then the soil will be considered as?",
+        options: [
+            "Acidic",
+            "Neutral",
+            "Alkaline",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Nandadevi peak is located in which state?",
+        options: [
+            "Sikkim",
+            "Himachal Pradesh",
+            "Uttrakhand",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Silent Valley National Park is located in which state of India?",
+        options: [
+            "West Bengal",
+            "Kerala",
+            "Uttrakhand",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the literacy rate in India as per 2011 census?",
+        options: [
+            "74%",
+            "0.7",
+            "0.68",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Coking Coal is a vital input in which of the following industry?",
+        options: [
+            "Sponge Iron making",
+            "Copper smelting",
+            "Steel making",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who is the Director of the film RRR, whose song won the Oscar Award in 2023?",
+        options: [
+            "SS Rajamauli",
+            "Maniratnam",
+            "S. Shankar",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Which country has recently banned domestic flights for journeys that are possible in less than two and half hours by Train?",
+        options: [
+            "Spain",
+            "Germany",
+            "France",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who is called an employee proficient in Hindi?",
+        options: [
+            "Knowledge of Hindi at primary level",
+            "Passed Primary Level Exam in Hindi Medium",
+            "Knowledge of Hindi at matriculation level",
+            "Matriculation Level Exam Passed in Hindi Medium"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Which is the foreign language included in the Eighth Schedule?",
+        options: [
+            "Nepali",
+            "Persian",
+            "English",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Who is the chairman of Railway Board Official Language Implementation Committee?",
+        options: [
+            "Minister of Railways",
+            "Prime Minister",
+            "Chairman and CEO, Railway Board",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who is the chairman of Central Hindi Committee?",
+        options: [
+            "Home Minister",
+            "Prime Minister",
+            "Railway Minister",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "For what purpose Lal Bahadur Shastri Takaniki Maulik Lekhan Award is given?",
+        options: [
+            "To write books in Hindi literature",
+            "To write technical books in Hindi on railway subjects",
+            "For story/story collection and novel writing",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "How many members of Rajya Sabha are there in committee of Parliament of Official Language?",
+        options: [
+            "10",
+            "7",
+            "15",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "How many sections are there in the Official Language Act, 1963?",
+        options: [
+            "8",
+            "9",
+            "10",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "In which language is there a provision to give the documents related to disciplinary proceedings to the employee?",
+        options: [
+            "Regional Language",
+            "Hindi",
+            "Hindi or English - in which the employee wants",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who is the chairman of the Zonal Railway Official Language Implementation Committee?",
+        options: [
+            "General Manager",
+            "Addl. General Manager",
+            "Chief Rajbhasha Officer",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the introductory course for central government employees?",
+        options: [
+            "Praveen",
+            "Prabodh",
+            "Pragya",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "In which language order are the announcements to be made at railway stations?",
+        options: [
+            "Local, Hindi, English",
+            "Regional, English, Hindi",
+            "Regional, Hindi, English",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who does the translation of statutory rules, regulations and orders as per the constitution?",
+        options: [
+            "Home Ministry",
+            "Ministry of Law",
+            "Ministry of Railways",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "For whom is the Rajbhasha Individual Cash Award Scheme prescribed?",
+        options: [
+            "For employees",
+            "For Officers",
+            "For officers up to Junior Administrative Grade and non-gazetted categories",
+            "For Senior Administrative Grade Officers"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Hindi Salahkar Samiti is constituted in which ministry?",
+        options: [
+            "In all ministries",
+            "In the Ministry of Home Affairs",
+            "In the Ministry of Education",
+            "In the Ministry of Finance"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the amount of the first prize under the Rail Travelogue Award Scheme?",
+        options: [
+            "Rs.8000/- and citation",
+            "Rs.6000/- and citation",
+            "Rs. 10000/- and citation",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the full form of PRAN? How many digits does a PRAN number have?",
+        options: [
+            "Permanent Retirement Account Number; 12",
+            "Provident Retirement Account Number: 12",
+            "Permanent Railway Account Number: 14",
+            "Permanent Railwaymen's Account Number, 12"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is upper limit of child care leave for Railway employees for Child Care Leave?",
+        options: [
+            "365 days",
+            "90 days",
+            "730 days",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which Authority is empowered to order for cut in Pension of Retired Railway Servant under DAR proceedings?",
+        options: [
+            "DRM",
+            "GM",
+            "President of India",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Who can allow for personal hearing in major penalty cases?",
+        options: [
+            "Appellate Authority",
+            "Appointing Authority",
+            "Disciplinary Authority",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the maximum period of suspension that can be extended at a time after review of the Competent Authority?",
+        options: [
+            "120 days",
+            "150 days",
+            "180 days",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the minimum period of Child Care Leave to be considered for sanction to a female Government servant?",
+        options: [
+            "10 days",
+            "5 days",
+            "20 days",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the penalty per day to be imposed against a Central Public Information Officer for giving misleading information?",
+        options: [
+            "Rs. 100 per day",
+            "Rs. 250 per day",
+            "Rs. 500 per day",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the time period for transfer of application to other Public Authority for request of information under Section 6(3) of the RTI Act?",
+        options: [
+            "1 day",
+            "2 days",
+            "5 days",
+            "10 days"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "In case of availing child care leave, the age of dependent disabled children should be up to-.",
+        options: [
+            "18 years",
+            "25 years",
+            "22 years",
+            "No limit"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Who is the custodian of listed documents in a Departmental Enquiry?",
+        options: [
+            "Presenting Officer",
+            "Defence Assistant",
+            "Inquiry Officer",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Who will take a decision whether the charges have been established before passing final orders?",
+        options: [
+            "Disciplinary Authority",
+            "Inquiry Officer",
+            "Presenting Officer",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Railway Services (Conduct) Rules, were passed in?",
+        options: [
+            "1989",
+            "1966",
+            "1961",
+            "1987"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "The period of maternity leave on account of miscarriage / abortion should be restricted to days during the entire service.",
+        options: [
+            "180 days",
+            "30 days",
+            "45 days",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which part of THE RAILWAY SERVANTS (DISCIPLINE & APPEAL) RULES, 1968 gives details of major and minor penalties? [Deleted]",
+        options: [
+            "Part I",
+            "Part II",
+            "Part III",
+            "Part IV"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Where appointing authority are not available, who should be treated as Appointing Authority?",
+        options: [
+            "Controlling Officer",
+            "DRM",
+            "GM",
+            "CPO"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Recognised Trade Union official can be allowed to act as defence counsel in DAR cases in .... numbers of cases.",
+        options: [
+            "2 numbers of cases",
+            "3 numbers of cases",
+            "5 numbers of cases",
+            "Any number of cases"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "What is a Budget?",
+        options: [
+            "A statement of receipts and payments incurred in a year",
+            "A statement of appropriation of funds",
+            "A record of all expenses made",
+            "A statement of estimated receipts and expenditure of the Government"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "From which Financial Year, was the Railway Budget included with the General Budget?",
+        options: [
+            "2017-2018",
+            "2016-2017",
+            "2015-2016",
+            "2018-2019"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "What does QCBS stand for?",
+        options: [
+            "Quality and Cost Based Selection",
+            "Quantity Conscious Bid Selection",
+            "Quality Contract Bid Selection",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The expenditure of the Railways is now covered in demand for grants number......",
+        options: [
+            "81",
+            "83",
+            "85",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The full form of DRF is:",
+        options: [
+            "Depreciation Reserve Fund",
+            "Depreciation Renewal Fund",
+            "Development Reserve Fund",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "The gross budgetary support towards capital expenditure of Indian Railways for the year 2023-24 is?",
+        options: [
+            "Less than 1 Lakh Crore",
+            "Between 1 and 2 Lakh Crores",
+            "More than 2 Lakh Crores",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The Plan Head under which works for customer amenities are included?",
+        options: [
+            "51",
+            "52",
+            "53",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "The powers of the General Manager for sanctioning works under Plan Head 16 is upto ......?",
+        options: [
+            "Rs. 2.5 Crs.",
+            "Rs. 5 Crs.",
+            "Rs. 50 Crs.",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "After the merger of the Railway Budget, what has been the major implication?",
+        options: [
+            "Railways no longer has to prepare its Annual Statement of Receipts & Expenditure",
+            "The Finance Ministry prepares the Railway Budget",
+            "Railways no longer have to pay dividend to the Government",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "Which is not an example of EBR Funding in Indian Railways?",
+        options: [
+            "Leased assets from IRFC",
+            "LIC loan",
+            "RRSK Funds",
+            "None of these"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "What is NOT a source of funding for Indian Railways to finance its capital expenditure projects?",
+        options: [
+            "Extra budgetary resources",
+            "Gross budgetary support",
+            "Internal resources of Indian Railways",
+            "None of these"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Re-appropriation of funds from one plan head to another plan head is within the powers of?",
+        options: [
+            "DRM",
+            "PHOD",
+            "GM",
+            "Railway Board"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "Percentage of working expenses to gross earnings is known as?",
+        options: [
+            "Inventory Tum Over Ratio",
+            "Operating Ratio",
+            "Liquidity Ratio",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Abstract 'Y' in Earning Classification is?",
+        options: [
+            "Passenger Earning",
+            "Goods Earning",
+            "Sundry Earning",
+            "Other Coaching Earning"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Administrative approval of competent Authority for incurring expenditure is accorded at this stage?",
+        options: [
+            "Abstract Estimate",
+            "Detailed Estimate",
+            "Revised Estimate",
+            "Completion Estimate"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Minimum notice period for quotations is?",
+        options: [
+            "7 days",
+            "10 days",
+            "12 days",
+            "None of these"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "Variation beyond 150% of the contract value requires the sanction of?",
+        options: [
+            "Railway Board",
+            "GM",
+            "PHOD",
+            "Tender Accepting Authority"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Primary Unit of allocation denotes?",
+        options: [
+            "Nature of expenditure",
+            "Object of expenditure",
+            "Authority who has incurred the expenditure",
+            "None of these"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "Cash in Transit is?",
+        options: [
+            "The cash taken by station in the balance sheet is accounted by cash office in the following month",
+            "The cash accounted by station in a month",
+            "The cash accounted by cash office in a month",
+            "None of these"
+        ],
+        correctAnswer: 0
     }
 ]
 
 const freeQuestions = [ 
     {
-        question: "free Question 1 ",
+        question: "Free question 1 ",
         options: [
             "Tonn-Kms",
-            "kilometre ",
+            "Kilometre ",
             "Wagon Km per wagon day",
             "None of these "
         ],
         correctAnswer: 1
     },
     {
-        question: "free Question 2",
+        question: "Free question 2",
         options: [
-            "post departure delay ",
-            "post departure detention ",
-            "pre departure detention ",
-            "none of these "
+            "Post departure delay ",
+            "Post departure detention ",
+            "Pre departure detention ",
+            "None of these "
         ],
         correctAnswer: 2
     }
