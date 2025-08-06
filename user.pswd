@@ -10,6 +10,7 @@ const userExamMap = {
     'TEST': ['auto'],
     'MUGAN01': ['auto', 'AOM23JUNE'],
     'MAYUG01': ['auto', 'AOM23JUNE']
+    'MULTE01': ['auto', 'AOM23JUNE']
 };
 
 MUGAN01="ganesh"
