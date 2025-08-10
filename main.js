@@ -1,3 +1,50 @@
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx97zhrNR76hdMWnwAyXm4rU8Vo0_p8K0c4z20ZxZYoYQ62okarnFl_FY3KPZKYpgRiUQ/exec';
+
+function logEvent(logObject) {
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(logObject)
+    }).catch(err => console.error('Error sending log to Google Sheet:', err));
+}
+
+function createLogEntry(event, eventText, descriptionText = "") {
+    // Generate a reliable IST timestamp directly in the browser.
+    const now = new Date();
+    const timestamp = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)).toISOString().replace('Z', '+05:30');
+
+    const studentId = document.getElementById('student-id').value.trim().toUpperCase() || 'GUEST';
+    
+    let description;
+    if (descriptionText) {
+        description = descriptionText;
+    } else if (event) {
+        description = JSON.stringify({
+            type: 'click',
+            target_id: event.target.id,
+            target_tagName: event.target.tagName,
+            target_className: event.target.className,
+            x: event.clientX,
+            y: event.clientY
+        });
+    } else {
+        description = "";
+    }
+
+    const logObject = {
+        timestamp: timestamp, // Send the timestamp from the client
+        user: studentId,
+        event: eventText,
+        description: description,
+    };
+    
+    logEvent(logObject);
+}
+
+
 // Categorize questions by count for section navigation and topic assignment
 function categorizeQuestionsByCount(questions) {
     if (questions.length === 175) {
@@ -215,7 +262,8 @@ function formatTime(seconds) {
 }
 
 // Handle login: free user skips password, paid user checks password and loads allowed exams
-loginBtn.addEventListener('click', function () {
+loginBtn.addEventListener('click', function (event) {
+    createLogEntry(event, 'Attempted to log in');
     isFreeUser = document.getElementById('free_user').checked;
     const studentId = studentIdInput.value.trim().toUpperCase();
     const password = passwordInput.value;
@@ -250,8 +298,9 @@ loginBtn.addEventListener('click', function () {
 });
 
 // Show instructions after exam type is selected, then allow proceeding to exam
-selectExamBtn.addEventListener('click', function () {
+selectExamBtn.addEventListener('click', function (event) {
     const examType = document.querySelector('input[name="exam_type"]:checked').value;
+    createLogEntry(event, `Selected exam: ${examType}`);
     // Hide exam page and show instructions section
     examSelectionPage.classList.add('hidden');
     // Create or show instructions modal/section
@@ -294,13 +343,15 @@ selectExamBtn.addEventListener('click', function () {
                 proceedBtn.style.display = 'block';
                 proceedBtn.style.margin = '30px auto 0 auto';
                 proceedBtn.textContent = 'Proceed to Exam';
-                proceedBtn.onclick = function() {
+                proceedBtn.onclick = function(event) {
+                    createLogEntry(event, 'Proceeded to Exam');
                     instrSection.style.display = 'none';
                     startExam(examType);
                 };
                 instrSection.appendChild(proceedBtn);
             } else {
-                document.getElementById('proceed-to-exam-btn').onclick = function() {
+                document.getElementById('proceed-to-exam-btn').onclick = function(event) {
+                    createLogEntry(event, 'Proceeded to Exam');
                     instrSection.style.display = 'none';
                     startExam(examType);
                 };
@@ -362,6 +413,7 @@ function updateTimer() {
 
 // Render the current question and options, update navigation buttons
 function loadQuestion(index) {
+    createLogEntry(null, `Loaded Question: Q${index + 1}`);
     questionsContainer.innerHTML = '';
     const questionCard = document.createElement('div');
     questionCard.className = 'question-card';
@@ -385,8 +437,9 @@ function loadQuestion(index) {
         label.htmlFor = `q${index}option${optionIndex}`;
         label.className = 'option-label';
         label.innerHTML = `<span class="pill pill-opt">${optionIndex + 1}</span> <span class="option-text">${option}</span>`;
-        input.addEventListener('change', () => {
+        input.addEventListener('change', (event) => {
             userAnswers[index] = optionIndex;
+            createLogEntry(event, `Answered Question: ${index + 1} with option ${optionIndex + 1}.`, `Correct answer is ${questions[index].correctAnswer + 1}`);
             updateProgressBar();
         });
         optionDiv.appendChild(input);
@@ -419,7 +472,7 @@ function updateProgressBar() {
 }
 
 // Submit the exam, calculate score, show feedback, and email results
-function submitExam() {
+function submitExam(event) {
     clearInterval(timerInterval);
     let attempted = 0;
     let score = 0;
@@ -440,6 +493,7 @@ function submitExam() {
     finalScore = Math.round(finalScore * 100) / 100;
     scoreElement.textContent = finalScore;
     document.getElementById("r-id").innerHTML = "Crew ID: " + studentIdInput.value.toLocaleUpperCase();
+    createLogEntry(event, `Submitted exam. Score: ${finalScore}/${questions.length}`);
     if (finalScore >= 90) {
         feedbackElement.className = 'feedback alert alert-success';
         feedbackElement.innerHTML = `<strong>Congratulations!</strong> You qualified with ${finalScore} marks!`;
@@ -489,23 +543,29 @@ function submitExam() {
 
 
 // --- Navigation and Action Event Listeners ---
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener('click', (event) => {
+    createLogEntry(event, 'Clicked Previous Button');
     if (currentQuestion > 0) {
         currentQuestion--;
         loadQuestion(currentQuestion);
     }
 });
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', (event) => {
+    createLogEntry(event, 'Clicked Next Button');
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
         loadQuestion(currentQuestion);
     }
 });
-submitBtn.addEventListener('click', submitExam);
-viewAnswersBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', function(event) {
+    submitExam(event);
+});
+viewAnswersBtn.addEventListener('click', (event) => {
+    createLogEntry(event, 'Toggled View Answers');
     answersContainer.classList.toggle('hidden');
 });
-retakeBtn.addEventListener('click', () => {
+retakeBtn.addEventListener('click', (event) => {
+    createLogEntry(event, 'Clicked Retake Exam');
     // Reset state for retake
     currentQuestion = 0;
     userAnswers = new Array(EXAM_TIME_LIMIT_MINUTES).fill(null);
@@ -520,7 +580,8 @@ retakeBtn.addEventListener('click', () => {
 
 
 // Export exam results to Excel file
-document.getElementById('export-btn').addEventListener('click', function () {
+document.getElementById('export-btn').addEventListener('click', function (event) {
+    createLogEntry(event, 'Exported results to Excel');
     const studentId = studentIdInput.value.trim().toUpperCase();
     const data = questions.map((q, i) => ({
         "Question No.": i + 1,
