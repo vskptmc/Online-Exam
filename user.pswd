@@ -10,12 +10,16 @@ const userExamMap = {
     'TEST': ['auto'],
     'MUGAN01': ['auto', 'AOM23JUNE'],
     'MAYUG01': ['auto', 'AOM23JUNE'],
+    'NAGAG01': ['auto', 'AOM23JUNE'],
+    'BOVIN01': ['auto', 'AOM23JUNE'],
     'MULTE01': ['auto', 'AOM23JUNE']
 };
 
 MUGAN01="ganesh"
 MAYUG01="yugi"
 MULTE01="teja"
+BOVIN01="vinnu"
+NAGAG01="gagan"
 TEST="test"
 KOMMARA="tmrOP@123"
 ADMIN="password"
