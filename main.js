@@ -17,7 +17,7 @@ function createLogEntry(event, eventText, descriptionText = "") {
     const timestamp = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)).toISOString().replace('Z', '+05:30');
 
     const studentId = document.getElementById('student-id').value.trim().toUpperCase() || 'GUEST';
-    
+
     let description;
     if (descriptionText) {
         description = descriptionText;
@@ -40,7 +40,7 @@ function createLogEntry(event, eventText, descriptionText = "") {
         event: eventText,
         description: description,
     };
-    
+
     logEvent(logObject);
 }
 
@@ -174,6 +174,10 @@ let TOTAL_QUESTIONS; // For progress display
 let userAnswers = []; // User's selected answers
 let timeLeft; // Time left in seconds
 
+// ***** NEW: Section attempt limits state *****
+let sectionAttemptLimits = {}; // { 'Traffic': 80, 'GK/Rajabhasha': 30, 'Est/Fin/Acc': 30 } etc.
+let sectionAttempts = {};      // Running counts per (combined) section
+
 // DOM element references
 const loginPage = document.getElementById('login-page');
 const examSelectionPage = document.getElementById('exam-selection-page');
@@ -188,6 +192,7 @@ const progressBar = document.getElementById('progress-bar');
 const progressText = document.getElementById('progress-text');
 const scoreElement = document.getElementById('score');
 const feedbackElement = document.getElementById('feedback');
+const sectionScoreElement = document.getElementById('sectionScore');
 const viewAnswersBtn = document.getElementById('view-answers-btn');
 const answersContainer = document.getElementById('answers-container');
 const correctAnswersContainer = document.getElementById('correct-answers');
@@ -252,6 +257,50 @@ function showToast(title, message, type = 'primary') {
     bsToast.show();
 
     document.getElementById("e-id").innerHTML = "Crew ID: " + studentIdInput.value.toLocaleUpperCase();
+}
+
+// ***** NEW: Section limits helpers *****
+function initSectionLimits(totalQuestions) {
+    // Set caps as per your requirement
+    if (totalQuestions === 175) {
+        sectionAttemptLimits = {
+            'Traffic': 80,
+            'GK/Rajabhasha': 40,
+            'Est/Fin/Acc': 30
+        };
+    } else if (totalQuestions === 110) {
+        // Combined cap for Traffic + Rajabhasha = 70
+        sectionAttemptLimits = {
+            'Traffic+Rajabhasha': 70,
+            // Est/Fin/Acc has no special cap (all 30 can be answered)
+        };
+    } else {
+        sectionAttemptLimits = {};
+    }
+    recomputeSectionAttempts(); // start fresh from current userAnswers
+}
+
+function getSectionKey(question) {
+    if (questions.length === 175) {
+        return question.topic; // 'Traffic' | 'GK/Rajabhasha' | 'Est/Fin/Acc'
+    } else if (questions.length === 110) {
+        if (question.topic === 'Traffic' || question.topic === 'Rajabhasha') {
+            return 'Traffic+Rajabhasha';
+        }
+        return question.topic; // 'Est/Fin/Acc'
+    }
+    return 'General';
+}
+
+function recomputeSectionAttempts() {
+    sectionAttempts = {};
+    if (!Array.isArray(userAnswers)) return;
+    for (let i = 0; i < userAnswers.length; i++) {
+        if (userAnswers[i] !== null) {
+            const key = getSectionKey(questions[i]);
+            sectionAttempts[key] = (sectionAttempts[key] || 0) + 1;
+        }
+    }
 }
 
 // Format seconds as MM:SS for timer display
@@ -343,14 +392,14 @@ selectExamBtn.addEventListener('click', function (event) {
                 proceedBtn.style.display = 'block';
                 proceedBtn.style.margin = '30px auto 0 auto';
                 proceedBtn.textContent = 'Proceed to Exam';
-                proceedBtn.onclick = function(event) {
+                proceedBtn.onclick = function (event) {
                     createLogEntry(event, 'Proceeded to Exam');
                     instrSection.style.display = 'none';
                     startExam(examType);
                 };
                 instrSection.appendChild(proceedBtn);
             } else {
-                document.getElementById('proceed-to-exam-btn').onclick = function(event) {
+                document.getElementById('proceed-to-exam-btn').onclick = function (event) {
                     createLogEntry(event, 'Proceeded to Exam');
                     instrSection.style.display = 'none';
                     startExam(examType);
@@ -383,6 +432,10 @@ function startExam(examType) {
     }
     TOTAL_QUESTIONS = questions.length;
     userAnswers = new Array(questions.length).fill(null);
+
+    // ***** NEW: initialize limits & attempt counters *****
+    initSectionLimits(questions.length);
+
     timeLeft = EXAM_TIME_LIMIT_MINUTES * 60;
     document.getElementById("tot_time").innerHTML = `${EXAM_TIME_LIMIT_MINUTES}`;
     document.getElementById("tot_questions").textContent = TOTAL_QUESTIONS;
@@ -421,6 +474,23 @@ function loadQuestion(index) {
     questionNumber.className = 'question-number mb-3 pill-qnum';
     questionNumber.innerHTML = `<span class="pill pill-q">Q${index + 1}</span> <span class="qtext">${questions[index].question}</span>`;
     questionCard.appendChild(questionNumber);
+
+    // ***** NEW: compute lock state for this question's section *****
+    const sectionKey = getSectionKey(questions[index]);
+    const sectionLimit = sectionAttemptLimits[sectionKey];
+    const attemptsSoFar = sectionAttempts[sectionKey] || 0;
+    const isUnanswered = (userAnswers[index] === null);
+    const sectionLocked = !!sectionLimit && isUnanswered && attemptsSoFar >= sectionLimit;
+
+    // Optional small hint when locked
+    if (sectionLocked) {
+        const note = document.createElement('div');
+        note.className = 'alert alert-warning py-1 px-2 mb-2';
+        note.style.fontSize = '0.85rem';
+        note.textContent = `Attempt limit reached for this section (${sectionKey}).`;
+        questionCard.appendChild(note);
+    }
+
     questions[index].options.forEach((option, optionIndex) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'form-check';
@@ -430,6 +500,10 @@ function loadQuestion(index) {
         input.id = `q${index}option${optionIndex}`;
         input.className = 'option-input';
         input.value = optionIndex;
+
+        // ***** NEW: disable inputs if section is locked and this Q is still unanswered *****
+        if (sectionLocked) input.disabled = true;
+
         if (userAnswers[index] === optionIndex) {
             input.checked = true;
         }
@@ -437,15 +511,78 @@ function loadQuestion(index) {
         label.htmlFor = `q${index}option${optionIndex}`;
         label.className = 'option-label';
         label.innerHTML = `<span class="pill pill-opt">${optionIndex + 1}</span> <span class="option-text">${option}</span>`;
-        input.addEventListener('change', (event) => {
-            userAnswers[index] = optionIndex;
-            createLogEntry(event, `Answered Question: ${index + 1} with option ${optionIndex + 1}.`, `Correct answer is ${questions[index].correctAnswer + 1}`);
-            updateProgressBar();
-        });
+
+        // input.addEventListener('change', (event) => {
+        //     // ***** NEW: enforce section attempt caps *****
+        //     const key = getSectionKey(questions[index]);
+        //     const limit = sectionAttemptLimits[key];
+        //     const alreadyAnswered = (userAnswers[index] !== null);
+        //     const currentAttempts = sectionAttempts[key] || 0;
+
+        //     if (!alreadyAnswered && limit && currentAttempts >= limit) {
+        //         // Block new attempts beyond limit
+        //         event.preventDefault();
+        //         input.checked = false;
+        //         showToast("Limit Reached", `You can attempt only ${limit} question(s) in ${key}.`, 'warning');
+        //         createLogEntry(event, `Attempt blocked in ${key}`, `Limit ${limit}, attempts ${currentAttempts}`);
+        //         return;
+        //     }
+
+        //     // First-time answer increments section counter
+        //     if (!alreadyAnswered) {
+        //         sectionAttempts[key] = currentAttempts + 1;
+        //     }else if(optionIndex === userAnswers[index]){
+        //         input.checked = false;
+        //         sectionAttempts[key] = currentAttempts - 1;
+        //         optionIndex=null
+        //     }
+
+        //     userAnswers[index] = optionIndex;
+        //     createLogEntry(event, `Answered Question: ${index + 1} with option ${optionIndex + 1}.`, `Correct answer is ${questions[index].correctAnswer + 1}`);
+        //     updateProgressBar();
+        // });
+
+        input.addEventListener('click', (event) => {
+    const key = getSectionKey(questions[index]);
+    const limit = sectionAttemptLimits[key];
+    const alreadyAnswered = (userAnswers[index] !== null);
+    const currentAttempts = sectionAttempts[key] || 0;
+
+    // If user clicks the same option that is already selected → unselect
+    if (userAnswers[index] === optionIndex) {
+        event.preventDefault();
+        input.checked = false;
+        userAnswers[index] = null;
+        sectionAttempts[key] = Math.max(0, currentAttempts - 1);
+        recomputeSectionAttempts();
+        updateProgressBar();
+        createLogEntry(event, `Cleared answer for Question ${index + 1}`, ``);
+        return;
+    }
+
+    // Enforce section caps
+    if (!alreadyAnswered && limit && currentAttempts >= limit) {
+        event.preventDefault();
+        input.checked = false;
+        showToast("Limit Reached", `You can attempt only ${limit} question(s) in ${key}.`, 'warning');
+        createLogEntry(event, `Attempt blocked in ${key}`, `Limit ${limit}, attempts ${currentAttempts}`);
+        return;
+    }
+
+    // Normal case: record new selection
+    userAnswers[index] = optionIndex;
+    recomputeSectionAttempts();
+    updateProgressBar();
+    createLogEntry(event,
+        `Answered Question: ${index + 1} with option ${optionIndex + 1}.`,
+        `Correct answer is ${questions[index].correctAnswer + 1}`);
+});
+
         optionDiv.appendChild(input);
         optionDiv.appendChild(label);
         questionCard.appendChild(optionDiv);
     });
+
     questionsContainer.appendChild(questionCard);
     // Update navigation button states
     prevBtn.disabled = index === 0;
@@ -472,35 +609,75 @@ function updateProgressBar() {
 }
 
 // Submit the exam, calculate score, show feedback, and email results
+// Submit the exam, calculate score, show feedback, and email results
 function submitExam(event) {
     clearInterval(timerInterval);
     let attempted = 0;
-    let score = 0;
+    let correct = 0;
+    let wrong = 0;
     let negative = 0;
+
+    // Track per-section stats
+    let sectionStats = {}; // { 'Traffic': {correct, wrong, attempted}, ... }
+
     for (let i = 0; i < questions.length; i++) {
         if (userAnswers[i] !== null) {
             attempted++;
+            const secKey = questions[i].topic || 'General';
+            if (!sectionStats[secKey]) sectionStats[secKey] = { correct: 0, wrong: 0, attempted: 0 };
+            sectionStats[secKey].attempted++;
+
             if (userAnswers[i] === questions[i].correctAnswer) {
-                score++;
+                correct++;
+                sectionStats[secKey].correct++;
             } else {
-                negative += 1/3;
+                wrong++;
+                negative += 1 / 3;
+                sectionStats[secKey].wrong++;
             }
         }
-        if (attempted === 150) break;
+        // ❌ remove the old "if (attempted === 150) break;"
     }
-    let finalScore = score - negative;
-    if (finalScore < 0) finalScore = 0;
-    finalScore = Math.round(finalScore * 100) / 100;
-    scoreElement.textContent = finalScore;
+
+    // let finalScore = correct - negative;
+    // if (finalScore < 0) finalScore = 0;
+    // finalScore = Math.round(finalScore * 100) / 100;
+
+    let finalScore = 0;
+
+    if (questions.length === 175) {
+        // Negative marking applies
+        finalScore = correct - negative;
+        if (finalScore < 0) finalScore = 0; // safeguard
+    } else {
+        // No negative marking
+        finalScore = correct;
+    }
+
+    // ✅ fixed: use dynamic total instead of hardcoded 150
+    scoreElement.textContent = `${finalScore}`;
     document.getElementById("r-id").innerHTML = "Crew ID: " + studentIdInput.value.toLocaleUpperCase();
     createLogEntry(event, `Submitted exam. Score: ${finalScore}/${questions.length}`);
+
+    // Feedback
     if (finalScore >= 90) {
         feedbackElement.className = 'feedback alert alert-success';
         feedbackElement.innerHTML = `<strong>Congratulations!</strong> You qualified with ${finalScore} marks!`;
     } else {
         feedbackElement.className = 'feedback alert alert-danger';
-        feedbackElement.innerHTML = `<strong>Needs improvement.</strong> You scored ${finalScore} out of 150.`;
+        feedbackElement.innerHTML = `<strong>Needs improvement.</strong> You scored ${finalScore} out of ${questions.length}.`;
     }
+
+    // ✅ Section-wise breakdown
+    let breakdownHtml = '<h5>Section-wise Performance</h5> <table class="table table-sm table-bordered table-hover">';
+    breakdownHtml += ` <thead class="thead-dark"> <tr> <th>Section</th> <th>Attempted</th> <th>Correct</th> <th>Wrong</th> </tr> </thead> <tbody>`;
+    Object.keys(sectionStats).forEach(sec => {
+        const s = sectionStats[sec];
+        breakdownHtml += `<tr> <td>${sec}</td> <td>${s.attempted}</td> <td>${s.correct}</td> <td>${s.wrong}</td> </tr>`;
+    });
+    breakdownHtml += '</tbody> </table>';
+    sectionScoreElement.innerHTML = breakdownHtml;
+
     // Show correct answers for all questions
     correctAnswersContainer.innerHTML = '';
     questions.forEach((q, i) => {
@@ -518,16 +695,18 @@ function submitExam(event) {
         `;
         correctAnswersContainer.appendChild(answerDiv);
     });
+
     // Show result page
     examPage.classList.add('hidden');
     resultPage.classList.remove('hidden');
     answersContainer.classList.add('hidden');
+
     // EmailJS integration: send result to admin
     emailjs.init("8QLH7j50J-Z06jiLq");
     emailjs.send("service_3y0p7zd", "template_9xwwa3n", {
         to_email: "vskptmc@gmail.com",
         student_id: studentIdInput.value.toUpperCase(),
-        score: score,
+        score: finalScore,
         total: questions.length,
         result_body: questions.map((q, i) => {
             const yourAnswer = userAnswers[i] !== null ? q.options[userAnswers[i]] : "Not Answered";
@@ -539,7 +718,9 @@ function submitExam(event) {
     }).catch((error) => {
         console.error("❌ Failed to send email:", error);
     });
+    renderExamKey();
 }
+
 
 
 // --- Navigation and Action Event Listeners ---
@@ -557,7 +738,7 @@ nextBtn.addEventListener('click', (event) => {
         loadQuestion(currentQuestion);
     }
 });
-submitBtn.addEventListener('click', function(event) {
+submitBtn.addEventListener('click', function (event) {
     submitExam(event);
 });
 viewAnswersBtn.addEventListener('click', (event) => {
@@ -568,7 +749,9 @@ retakeBtn.addEventListener('click', (event) => {
     createLogEntry(event, 'Clicked Retake Exam');
     // Reset state for retake
     currentQuestion = 0;
-    userAnswers = new Array(EXAM_TIME_LIMIT_MINUTES).fill(null);
+    // ***** FIXED: reset to question count, not minutes *****
+    userAnswers = new Array(EXAM_QUESTION_COUNT).fill(null);
+    recomputeSectionAttempts(); // keep section caps consistent on retake
     updateProgressBar();
     resultPage.classList.add('hidden');
     examPage.classList.remove('hidden');
@@ -576,6 +759,75 @@ retakeBtn.addEventListener('click', (event) => {
     timerInterval = setInterval(updateTimer, 1000);
     loadQuestion(currentQuestion);
 });
+
+// Render the exam key with clickable question numbers
+function renderExamKey() {
+    const container = document.getElementById("exam-key");
+    container.innerHTML = `
+        <div class="result-card">
+            <h5>Answer Key</h5>
+            <div class="table-container"></div>
+            <div id="review-box"></div>
+        </div>
+    `;
+
+    const tableContainer = container.querySelector(".table-container");
+    const table = document.createElement("table");
+    table.className = "exam-key-table";
+    let row = document.createElement("tr");
+
+    questions.forEach((q, idx) => {
+        const td = document.createElement("td");
+        td.textContent = idx + 1;
+        td.className = "exam-key-cell";
+
+        // Mark correct/incorrect color
+        if (userAnswers[idx] === q.correctAnswer) {
+            td.style.color = "green";
+        } else if (userAnswers[idx] !== null) {
+            td.style.color = "red";
+        } else {
+            td.style.color = "gray"; // unanswered
+        }
+
+        // Click → show question review
+        td.addEventListener("click", () => showReviewQuestion(idx));
+        row.appendChild(td);
+
+        // wrap row every 20 questions
+        if ((idx + 1) % 20 === 0) {
+            table.appendChild(row);
+            row = document.createElement("tr");
+        }
+    });
+
+    if (row.childNodes.length > 0) table.appendChild(row);
+    tableContainer.appendChild(table);
+}
+
+
+function showReviewQuestion(index) {
+    const reviewBox = document.getElementById("review-box");
+    const q = questions[index];
+    const userAns = userAnswers[index];
+
+    let html = `<h6 style="font-weight: bold;">Q${index + 1}. ${q.question}</h6><ul>`;
+    q.options.forEach((opt, i) => {
+        let style = "";
+        let qMark="&nbsp;&nbsp;&nbsp;";
+        if (i === q.correctAnswer) {
+            style = "color: green; font-weight: bold;"; qMark="<span style='font-weight: bold; color:green'>&#10004;</span>"; // check mark
+        }
+        if (userAns === i && userAns !== q.correctAnswer) {
+            style = "color: red;"; qMark="<span style='font-weight: bold; color:red'>&#10006;</span>";
+        }
+
+        html += `<li style="${style}">${i+1} &nbsp;${qMark} &nbsp; ${opt}</li>`;
+    });
+    html += "</ul>";
+
+    reviewBox.innerHTML = html;
+}
 
 
 
