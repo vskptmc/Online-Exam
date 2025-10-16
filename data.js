@@ -1,3 +1,348 @@
+const generalSafetyRules= [
+  {
+    question: "Kinds of stations available in Indian Railways are _____.",
+    options: [
+      "Two",
+      "three",
+      "four",
+      "five."
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "Approved special instructions are issued by _____.",
+    options: [
+      "CRS",
+      "Authorized officer",
+      "GM",
+      "Rly Board."
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "Working time table is an example of _____.",
+    options: [
+      "General rules",
+      "Subsidary Rules",
+      "Station working rule",
+      "Special instructions."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "D-class stations are _____ stations.",
+    options: [
+      "Block",
+      "Non- block",
+      "Road side",
+      "Special class"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "Station section in MAST Single line B-class station with full complement of signals is between _____.",
+    options: [
+      "Home Signals.",
+      "Advance Starters.",
+      "Distant Signals",
+      "Outermost facing point."
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "BSLB shall be placed in advance of FSS at a distance of _____.",
+    options: [
+      "400 mts.",
+      "120 mts.",
+      "180 mts.",
+      "670 mts."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "_____ Board may be provided in the absence of Advanced Starter.",
+    options: [
+      "Block section Limt",
+      "Shunting Limit",
+      "Termination",
+      "Cross-over clear"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "Block overlap is reckoned from _____.",
+    options: [
+      "FSS",
+      "LSS",
+      "Starter",
+      "Facing point"
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "In double line, signal overlap is reckoned from _____.",
+    options: [
+      "Home",
+      "Adv. Starter",
+      "Intermediate Starter",
+      "Starter"
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "LSS controls the entry of a train into next _____.",
+    options: [
+      "Catch siding",
+      "out-laying siding",
+      "Station section",
+      "Block section"
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "Maximum permissible speed is prescribed by _____.",
+    options: [
+      "PCSO",
+      "PCOM",
+      "CRS",
+      "Railway Board"
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "During TSL working, when a train is approaching a station on wrong line, the train shall be received on _____.",
+    options: [
+      "Signals.",
+      "SPT",
+      "T/369(3b)",
+      "written memo."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "Normal speed is permitted with _____ Authority.",
+    options: [
+      "T/A 602",
+      "T/B 602",
+      "T/C 602",
+      "T/D 602"
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "During TIC in Single line, _____ authority is issued separately to enter into block section.",
+    options: [
+      "T/E 602",
+      "T/F602",
+      "T/G 602 or T/H 602",
+      "T/D 602."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "When LP reports heavy lurch/bad riding, Caution order is issued to restrict the speed to _____.",
+    options: [
+      "5 kmph",
+      "10 kmph.",
+      "15 kmph.",
+      "Walking speed."
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "During train parting, while proceeding to station in advance, LP shall stop at _____.",
+    options: [
+      "SM building.",
+      "Outermost facing points.",
+      "Home",
+      "Distant."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "Block Ticket to proceed without line clear is in form No. _____.",
+    options: [
+      "T/A 602",
+      "T/B 602",
+      "T/C 602",
+      "T/D 602."
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "Authority to proceed is issued during TSL working on double line is _____.",
+    options: [
+      "T/A 602.",
+      "T/B 602",
+      "T/C 602",
+      "T/D 602."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "_____ is an authority to proceed with line clear.",
+    options: [
+      "T/A 602",
+      "T/B 602",
+      "T/C 602",
+      "T/D 602."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "Form No. _____ does not contain Caution order.",
+    options: [
+      "T/A 602",
+      "T/B 602",
+      "T/609",
+      "T/H 602."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "During TSL working on D/Line, authority to pass IB signal is _____.",
+    options: [
+      "T/369(3b)",
+      "PHS",
+      "Message with PN",
+      "T/D602."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "During TIC in D/L, when a train has to be protected, the second detonator shall be placed at _____ distance.",
+    options: [
+      "600 mts",
+      "250 mts",
+      "1200 mts",
+      "500 mts."
+    ],
+    correctAnswer: 3
+  },
+  {
+    question: "While proceeding on T/A602 during day and view ahead is clear, speed of train shall not exceed _____.",
+    options: [
+      "10 kmph",
+      "20 kmph",
+      "15 kmph",
+      "25 kmph."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "Authority for Relief train/engine to enter in to obstructed block section is _____.",
+    options: [
+      "T/A 602",
+      "T/B 602",
+      "T/C 602",
+      "T/D602"
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "During TIC on D/L, when a train is waiting at FSS. Crew and TMR shall protect the train, when the detention of train exceeds _____.",
+    options: [
+      "10 mins",
+      "20 mins",
+      "25 mins",
+      "5 mins"
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "When train arrives incomplete, the whistle code given by the Loco Pilot is _____.",
+    options: [
+      "Two short",
+      "One long One short One long one short",
+      "Three short",
+      "Three long"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "For protection of a train in Absolute Block System in BG, the first detonator is placed at _____.",
+    options: [
+      "400 mtrs",
+      "600 mtrs",
+      "500 mtrs",
+      "250 mtrs."
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "During Line Block, with _____ authority, departmental trains may be dispatched in to the block section.",
+    options: [
+      "T/A 602",
+      "Caution order",
+      "T-1408",
+      "None"
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "_____ is authority to proceed without line clear.",
+    options: [
+      "T/G 602",
+      "T/A 602",
+      "T/H 602",
+      "T/D 602"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "For protection in Absolute Block System, 3rd detonator is placed from obstruction at a distance of _____.",
+    options: [
+      "600 mtrs",
+      "1200 mtrs",
+      "1210 mtrs",
+      "1220 mtrs."
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "In double line, Block forward means shunting beyond _____.",
+    options: [
+      "FSS",
+      "BSLB",
+      "LSS",
+      "SLB"
+    ],
+    correctAnswer: 2
+  },
+  {
+    question: "Shunting order is issued in Form No. _____.",
+    options: [
+      "T/609",
+      "T/806",
+      "Verbal instructions",
+      "T/511"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "The maximum speed for shunting shall not exceed _____ kmph.",
+    options: [
+      "10",
+      "15",
+      "20",
+      "No restriction"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "An engine exclusively deployed for shunting purpose, shall put on _____ marker lights on both sides of the Loco.",
+    options: [
+      "White",
+      "Red",
+      "Red & white",
+      "No"
+    ],
+    correctAnswer: 1
+  },
+]
+
+const accidentManual= [
+]
 const autoQuestions = [ 
     {
         question: "Authority to pass a semi auto signal working as manual stop Signal, governing departure of a train (main line starter) from station is",
