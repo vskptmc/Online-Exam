@@ -14,7 +14,7 @@ const userExamMap = {
     'NAGAG01': ['auto', 'AOM23JUNE'],
     'BOVIN01': ['auto', 'AOM23JUNE'],
     'MULTE01': ['auto', 'AOM23JUNE'],
-    'KRISHNA':['generalSafetyRules']
+    'KRISHNA':['generalSafetyRules'],
     'ANIL':['generalSafetyRules']
 };
 
