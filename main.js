@@ -225,6 +225,7 @@ function renderExamSelection(allowedExams) {
         const examLabels = {
             'auto': 'Automatic Block System (AUTO) Exam',
             'AOM23JUNE': 'AOM - JUNE 2023',
+            'generalSafetyRules': 'MDTC GENERAL SAFETY RULES',
             'AOM20112022_30': 'AOM 30% LDCE - 20th NOV 2022',
             'AOM19022023_70': 'AOM 70% LDCE - 19th FEB 2023',
             'AOM05032023_70': 'AOM 70% LDCE - 05th MAR 2023',
@@ -373,6 +374,7 @@ selectExamBtn.addEventListener('click', function (event) {
     let qCount = 0;
     if (examType === 'auto') qCount = (typeof autoQuestions !== 'undefined') ? autoQuestions.length : 0;
     else if (examType === 'AOM23JUNE') qCount = (typeof AOM23JUNE !== 'undefined') ? AOM23JUNE.length : 0;
+    else if (examType === 'generalSafetyRules') qCount = (typeof generalSafetyRules !== 'undefined') ? generalSafetyRules.length : 0;
     else if (examType === 'AOM20112022_30') qCount = (typeof AOM20112022_30 !== 'undefined') ? AOM20112022_30.length : 0;
     else if (examType === 'AOM19022023_70') qCount = (typeof AOM19022023_70 !== 'undefined') ? AOM19022023_70.length : 0;
     else if (examType === 'AOM05032023_70') qCount = (typeof AOM05032023_70 !== 'undefined') ? AOM05032023_70.length : 0;
@@ -415,6 +417,7 @@ function startExam(examType) {
     const examMap = {
         'auto': autoQuestions,
         'AOM23JUNE': AOM23JUNE,
+        'generalSafetyRules': generalSafetyRules,
         'AOM20112022_30': AOM20112022_30,
         'AOM19022023_70': AOM19022023_70,
         'AOM05032023_70': AOM05032023_70,
