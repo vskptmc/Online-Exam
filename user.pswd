@@ -2,6 +2,7 @@
 ALL= ['AOM23JUNE','AOM20112022_30','AOM19022023_70', 'AOM05032023_70','AOM25062023_30']
 AUTO= ['auto']
 AOM=['AOM23JUNE','AOM20112022_30','AOM19022023_70']
+TP=['generalSafetyRules']
 
 const userExamMap = {
     'TEST1_USER': ['AOM23JUNE'],
@@ -12,7 +13,8 @@ const userExamMap = {
     'MAYUG01': ['auto', 'AOM23JUNE'],
     'NAGAG01': ['auto', 'AOM23JUNE'],
     'BOVIN01': ['auto', 'AOM23JUNE'],
-    'MULTE01': ['auto', 'AOM23JUNE']
+    'MULTE01': ['auto', 'AOM23JUNE'],
+    'KRISHNA':['generalSafetyRules']
 };
 
 MUGAN01="ganesh"
@@ -25,3 +27,4 @@ KOMMARA="tmrOP@123"
 ADMIN="password"
 TEST1_USER="test"
 TEST2_USER="test"
+KRISHNA="ccjs"
