@@ -16,6 +16,7 @@ const userExamMap = {
     'NAGAG01': ['auto', 'AOM23JUNE'],
     'BOVIN01': ['auto', 'AOM23JUNE'],
     'MULTE01': ['auto', 'AOM23JUNE'],
+    'TMC': ['auto', 'AOM23JUNE'],
     'KRISHNA':TP,
     'ANIL':TP,
     'QA':QA
@@ -34,3 +35,4 @@ TEST2_USER="test"
 KRISHNA="ccjs"
 ANIL="ccjs"
 QA="qa"
+TMC="tmc"
